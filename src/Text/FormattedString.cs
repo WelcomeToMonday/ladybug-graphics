@@ -47,6 +47,8 @@ namespace Ladybug.Graphics
 
 		public string Text { get; set; }
 
+		public Dictionary<string, string> Pallete {get; private set;} = new Dictionary<string, string>();
+
 		public Dictionary<string, string> Properties { get; private set; } = new Dictionary<string, string>();
 
 		public static List<FormattedString> Format(string input, SpriteFont defaultFont)
@@ -119,6 +121,11 @@ namespace Ladybug.Graphics
 			Color = c;
 		}
 
+		public void SetPalette(Dictionary<string, string> palette)
+		{
+			Pallete = palette;
+		}
+
 		public void SetFont(SpriteFont font)
 		{
 			Font = font;
@@ -134,7 +141,9 @@ namespace Ladybug.Graphics
 			foreach (var prop in Properties)
 			{
 				if (prop.Key == "color")
-				{ 
+				{
+					Color = ColorExtensions.ParseColor(prop.Value, Pallete);
+					/*
 					var cType = ColorType.NAME;
 					var res = Color.White;
 
@@ -172,6 +181,7 @@ namespace Ladybug.Graphics
 					}
 
 					Color = res;
+					*/
 				}
 			}
 		}
