@@ -29,6 +29,11 @@ namespace Ladybug.Graphics.UI
 			}
 		}
 
+		public void BuildMenu(XmlReader reader)
+		{
+			BuildFromXml(reader);
+		}
+
 		internal static Type LocateType(string typeName)
 		{
 			Type res = null;
