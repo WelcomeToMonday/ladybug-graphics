@@ -170,7 +170,10 @@ namespace Ladybug.Graphics
 					sb.Clear();
 				}
 			}
-
+			if (f.Count > 0)
+			{
+				f[f.Count - 1].Text = f[f.Count - 1].Text.TrimEnd(' ');
+			}
 			_output = f;
 		}
 
