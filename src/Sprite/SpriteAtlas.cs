@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -12,6 +15,8 @@ namespace Ladybug.Graphics
 
 		private int _spriteWidth;
 		private int _spriteHeight;
+
+		private Dictionary<string, Vector2> _tags;
 
 		public SpriteAtlas(Texture2D sourceTexture, int rows, int cols)
 		{
@@ -68,6 +73,40 @@ namespace Ladybug.Graphics
 
 				return new Sprite(_sourceTexture, frame);
 			}
+		}
+
+		public Sprite this[Vector2 coords]
+		{
+			get => this[(int)coords.X, (int)coords.Y];
+		}
+
+		public Sprite this[string tag]
+		{
+			get => GetSpriteFromTag(tag);
+		}
+
+		public void TagSprite(string tag, Vector2 coordinates)
+		{
+			if (_tags == null)
+			{
+				_tags = new Dictionary<string, Vector2>();
+			}
+
+			_tags[tag] = coordinates;
+		}
+
+		public void TagSprite(string tag, int x, int y) => TagSprite(tag, new Vector2(x, y));
+
+		public Sprite GetSpriteFromTag(string tag)
+		{
+			var res = default(Sprite);
+
+			if (_tags.ContainsKey(tag))
+			{
+				res = this[_tags[tag]];
+			}
+
+			return res;
 		}
 	}
 }
