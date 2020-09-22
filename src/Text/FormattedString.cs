@@ -131,6 +131,11 @@ namespace Ladybug.Graphics
 			Font = font;
 		}
 
+		public void SetScale(float scale)
+		{
+			Scale = scale;
+		}
+
 		public void CopyProperties(FormattedString source)
 		{
 			Properties = new Dictionary<string, string>(source.Properties);

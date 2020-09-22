@@ -44,7 +44,9 @@ namespace Ladybug.Graphics
 
 		public Color DefaultTextColor { get; private set; } = Color.White;
 
-		public float DefaultScale { get; set; }
+		public float DefaultScale { get; private set; } = 1.0f;
+
+		public Dictionary<string, string> ColorPalette {get; private set;}
 
 		public Rectangle Bounds { get; private set; }
 
@@ -86,6 +88,13 @@ namespace Ladybug.Graphics
 		{
 			DefaultTextColor = c;
 		}
+
+		public void SetScale(float s)
+		{
+			DefaultScale = s;
+		}
+
+		public void SetPalette(Dictionary<string, string> palette) => ColorPalette = palette;
 
 		public void SetBoundsToText()
 		{
@@ -191,6 +200,20 @@ namespace Ladybug.Graphics
 				else
 				{
 					str.SetFont(DefaultFont);
+				}
+
+				if (str.GetProperty("scale") != "")
+				{
+					str.SetScale(float.Parse(str.GetProperty("scale")));
+				}
+				else
+				{
+					str.SetScale(DefaultScale);
+				}
+
+				if (ColorPalette != null && ColorPalette.Count > 0)
+				{
+					str.SetPalette(ColorPalette);
 				}
 
 				if (str.GetProperty("newline") == "true")
