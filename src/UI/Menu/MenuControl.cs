@@ -5,6 +5,7 @@ using System.Xml;
 
 namespace Ladybug.Graphics.UI
 {
+	[Obsolete("Graphics.UI development has stopped. Please convert to Core.UI")]
 	public abstract class MenuControl
 	{
 		public string ID

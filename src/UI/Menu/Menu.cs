@@ -8,6 +8,7 @@ using Ladybug.Graphics.UI.Controls;
 
 namespace Ladybug.Graphics.UI
 {
+	[Obsolete("Graphics.UI development has stopped. Please convert to Core.UI")]
 	public class Menu : MenuPanel
 	{
 		

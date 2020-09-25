@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace Ladybug.Graphics.UI
 {
+	[Obsolete("Graphics.UI development has stopped. Please convert to Core.UI")]
 	public class MenuPanel
 	{
 		private Dictionary<string, MenuControl> _controls = new Dictionary<string, MenuControl>();

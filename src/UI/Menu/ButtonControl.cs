@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Ladybug.Graphics.UI.Controls
 {
+	[Obsolete("Graphics.UI development has stopped. Please convert to Core.UI")]
 	public class ButtonControl : MenuControl
 	{
 
