@@ -28,17 +28,21 @@ namespace Ladybug.Graphics
 			_spriteHeight = (int)(_sourceTexture.Height / _rows);
 		}
 
-		public Sprite this[int i]{
-			get{
+		public Texture2D Texture { get => _sourceTexture; }
+
+		public Sprite this[int i]
+		{
+			get
+			{
 				var row = 0;
 				var col = 0;
-				
+
 				if (i >= 0 && i <= (_rows * _cols) - 1)
 				{
 					row = (int)((float)i / (float)(_cols));
 					col = i % _cols;
 				}
-				
+
 				Rectangle frame = new Rectangle(
 					(int)(_spriteWidth * col),
 					(int)(_spriteHeight * row),
@@ -50,14 +54,16 @@ namespace Ladybug.Graphics
 			}
 		}
 
-		public Sprite this[int i, int j]{
-			get{
+		public Sprite this[int i, int j]
+		{
+			get
+			{
 				var row = 0;
 				var col = 0;
 
 				if (
-					(i >= 0 && i <= _cols -1) &&
-					(j >= 0 && j <= _rows -1)
+					(i >= 0 && i <= _cols - 1) &&
+					(j >= 0 && j <= _rows - 1)
 				)
 				{
 					col = i;
