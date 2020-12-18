@@ -74,7 +74,7 @@ namespace Ladybug.Graphics
 			_frames = new Sprite[frameCount];
 			for (var i = 0; i < frameCount; i++)
 			{
-				int row = (int)((float)(startFrame + i) / (float)columns);
+				int row = (int)(startFrame + i) / columns;
 				int column = (startFrame + i) % columns;
 				Rectangle frame = new Rectangle(
 					(int)(width * column), 
